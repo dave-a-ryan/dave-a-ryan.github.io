@@ -2906,6 +2906,10 @@ button:disabled,
   height: 100vh;
   position: relative;
   text-align: center;
+  font-family: "Cormorant", serif;
+  font-size: 2em !important;
+  font-style: bold;
+  text-transform: capitalize;
 }
 
 #header:after {
@@ -3269,13 +3273,13 @@ button:disabled,
 
 .main-header-text {
   font-family: "Cinzel Decorative", cursive;
-  font-size: 9em !important;
   font-style: normal;
   text-transform: capitalize;
 }
 
 .smaller-header-text {
   font-family: "Cormorant", serif;
+  font-size: 2em !important;
   font-style: bold;
   text-transform: capitalize;
 }
