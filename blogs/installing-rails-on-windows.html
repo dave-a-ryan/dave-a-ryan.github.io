@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>David Ryan's portfolio</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=yes"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/favicon_io/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="images/favicon_io/site.webmanifest" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./assets/css/blog.css" />
+  </head>
+
+  <body class="is-divload">
+    <div class="container">
+      <h2>Installing Ruby on Rails ... on Windows 10</h2>
+      <div>
+        <img src="assets/images/Square-Peg-Round-Hole.jpg" alt="" />
+      </div>
+      <p>
+        Maybe you're moving from a Mac to a PC and are used to Rails, or maybe
+        you got stuck in the Rails installation guide and went down 100
+        different stack-overflow rabbit holes (like me) and got nowhere. Well
+        it's not impossible, we can do this!
+      </p>
+      <p>
+        There's a few things you need right off the bat. Windows Store (ships
+        with Windows), and an up-to-date Windows version (Build 19041 and
+        higher, you can check your version by using WIN+R and entering winver)
+      </p>
+      <p>
+        For convenience, let's grab
+        <a
+          href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701"
+          target="_blank"
+          >Windows Terminal</a
+        >. This will allow you to have multiple tabs open at the same time, and
+        works with Ubuntu so you can quickly move back and forth from command
+        prompt / powershell and Ubuntu.
+      </p>
+      <p>
+        Speaking of Ubuntu, let's go ahead and install that next. This will have
+        all the usual commands and shortcuts that you're used to. Whenever you
+        want to make a new Rails app or start your server, you'll use Ubuntu.
+        When you install it, you'll make a username and password - they can be
+        unique if you want them to, but make the password something you'll
+        remember. You'll use that whenever you use the
+        `sudo` command.
+      </p>
+
+      <p>
+        <strong>
+          FROM HERE ON IN, USE UBUNTU ONLY FOR THIS INSTALLATION
+        </strong>
+      </p>
+
+      <p>
+        So the next step is to start on the Rails installation. You can follow
+        along there or just stick to this page.
+      </p>
+      <p>This will install some dependencies that you'll need for Ruby</p>
+
+      <div class="codebox rounded">
+        <code>
+          sudo apt-get update <br />
+          sudo apt-get install git-core curl zlib1g-dev build-essential
+          libssl-dev li/peadline-dev libyaml-dev libsqlite3-dev sqlite3
+          libxml2-dev libxslt1-dev libcurl4-openssl-dev
+          software-properties-common libffi-dev
+        </code>
+      </div>
+
+      <p>Now we'll install Ruby with Rbenv with the following commands</p>
+
+      <div class="codebox rounded">
+        <code>
+          cd git clone https://github.com/rbenv/rbenv.git ~/.rbenv <br />
+          echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc <br />
+          echo 'eval "$(rbenv init -)"' >> ~/.bashrc <br />
+          exec $SHELL git clone
+          <br />
+          <br />
+          https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+          echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >>
+          ~/.bashrc exec $SHELL
+        </code>
+      </div>
+
+      <p>
+        Then to get the specific Ruby version we want, we use the following
+        commands utilizing Rbenv to get 3.03
+      </p>
+
+      <div class="codebox rounded">
+        <code>
+          rbenv install 3.0.3 <br />
+          rbenv global 3.0.3
+        </code>
+      </div>
+
+      <p>
+        Confirm you've got Ruby installed..
+      </p>
+
+      <div class="codebox rounded">
+        <code>
+          ruby -v
+        </code>
+      </div>
+
+      <p>
+        Then install the Bundler gem
+      </p>
+
+      <div class="codebox rounded">
+        <code>
+          gem install bundler <br>
+          rbenv rehash
+        </code>
+      </div>
+
+      <p>stuff about git</p>
+
+      <p>
+        Next we'll get Node and Yarn. These are more dependencies for Rails, and
+        hey you might use them in the future.
+      </p>
+
+      <div class="codebox rounded">
+        <code>
+          curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - <br />
+          curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+          <br />
+          echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee
+          /etc/apt/sources.list.d/yarn.list <br />
+          <br />
+
+          sudo apt update <br />
+          sudo apt-get install -y nodejs yarn
+        </code>
+      </div>
+
+      <p>
+        Finally we install Rails!
+        <div class="codebox rounded">
+          <code>
+            gem install rails -v 7.0.0.rc1
+          </code>
+        </div>
+      </p>
+    </div>
+  </body>
+</html>
