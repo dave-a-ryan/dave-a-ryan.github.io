@@ -49,6 +49,9 @@
         it's not impossible, we can do this!
       </p>
       <p>
+        The first part of this guide is almost exactly the <a href="https://gorails.com/setup/windows/10" target="_blank">Gorails Signup guide</a>. If you've already gone through that, and you are stuck on the Postgresql setup - you can <a href="#postgres">skip to that section.</a> This tutorial also heavily leans on the blog <a href="https://karansingh1559.medium.com/how-to-set-up-postgresql-on-ubuntu-for-wsl-fcbb777d165b" target="_blank">How to set up postgreSQL on Ubuntu for WSL</a> by Karan Singh. This was the lifesaver that kept me from throwing my laptop out the window and paying Tim Cook for an overpriced machine. This blog also uses a solution on <a href="https://stackoverflow.com/questions/32439167/psql-could-not-connect-to-server-connection-refused-error-when-connecting-to" target="_blank">this Stackoverflow</a> question. With these three sources combined, I was able to successfully install Rails on Windows and you can too!
+      </p>
+      <p>
         There's a few things you need right off the bat. Windows Store (ships
         with Windows), and an up-to-date Windows version (Build 19041 and
         higher, you can check your version by using WIN+R and entering winver)
@@ -75,8 +78,8 @@
 
       <p>
         <strong>
-          FROM HERE ON IN, USE UBUNTU ONLY FOR THIS INSTALLATION
-        </strong>
+          FROM HERE ON IN, USE UBUNTU ONLY FOR THIS INSTALLATION.
+        </strong> Think of this like you're using a simulation of a mac inside Ubuntu. You'll need to configure Git in here as if you didn't in your Powershell.
       </p>
 
       <p>
@@ -144,7 +147,21 @@
         </code>
       </div>
 
-      <p>stuff about git</p>
+      <p>Next we'll install Git</p>
+
+      <div class="codebox rounded">
+        <code>
+        git config --global color.ui true <br>
+        git config --global user.name <span style="color:red">"YOUR NAME"</span><br>
+        git config --global user.email <span style="color:red">"YOUR@EMAIL.com" </span><br>
+        ssh-keygen -t rsa -b 4096 -C <span style="color:red">"YOUR@EMAIL.com"</span>
+        </code>
+    
+      </div>
+
+      <p>
+        In the Gorails tutorial, it has us set up an SSH key for Github - but that's been depreciated from what I understand. Github now uses Personal Access Tokens - you can find this setup in your Github settings > Developer Settings > Personal access tokens.
+      </p>
 
       <p>
         Next we'll get Node and Yarn. These are more dependencies for Rails, and
@@ -169,10 +186,23 @@
         Finally we install Rails!
         <div class="codebox rounded">
           <code>
-            gem install rails -v 7.0.0.rc1
+            gem install rails -v 7.0.0.rc1 <br>
+            rbenv reshash
           </code>
         </div>
       </p>
+      <div id="postgres">
+        <p>
+          Now we'll install Postgresql. Here's where the Gorails tutorial stops being helpful, as it asks us to install it through the Microsoft Store. This just led me to huge headaches & I ended up having to uninstall EVERYTHING and start again. Thankfully I found an amazing blog that I'll synthesize here. 
+        </p>
+        <div class="codebox rounded">
+          <code>
+            gem install rails -v 7.0.0.rc1 <br>
+            rbenv reshash
+          </code>
+        </div>
+      </div>
     </div>
+    
   </body>
 </html>
