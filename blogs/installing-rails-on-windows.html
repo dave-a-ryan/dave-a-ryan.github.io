@@ -197,10 +197,36 @@
         </p>
         <div class="codebox rounded">
           <code>
-            gem install rails -v 7.0.0.rc1 <br>
-            rbenv reshash
+            sudo apt-get install postgresql
           </code>
         </div>
+
+        <p>
+          Next we'll need to set up a password for postgres, you can make it the same as any of your other passwords if that makes it easier. Basically you can set up different users that have different database permissions.
+        </p>
+        <div class="codebox rounded">
+          <code>
+            sudo passwd postgres
+          </code>
+        </div>
+
+        <p>
+          Now we'll need to edit the postgres.conf file. This is hidden deep in your computer, and you can either edit it like the guide suggests with the following command (the version might be different to what you installed): 
+        </p>
+        <div class="codebox rounded">
+          <code>
+            sudo vi /etc/postgresql/<span style="color:red">10</span>/main/postgresql.conf
+          </code>
+        </div>
+
+        <p>
+          Personally instead of learning how to edit those things, I simply used the Everything program to search for that file. I found it in:</p>
+          <div class="codebox rounded">
+            <code>
+              C:\Users\Administrator\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\etc\postgresql\12\main\postgresql.conf
+            </code>
+          </div>
+          
       </div>
     </div>
     
