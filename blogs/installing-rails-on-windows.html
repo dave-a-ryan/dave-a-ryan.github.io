@@ -1,94 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>David Ryan's portfolio</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=yes"
+    />
 
-<head>
-  <title>David Ryan's portfolio</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/favicon_io/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="images/favicon_io/site.webmanifest" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png" />
-  <link rel="manifest" href="images/favicon_io/site.webmanifest" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/css/blog.css" />
+  </head>
 
-  <link rel="stylesheet" href="./assets/css/blog.css" />
-</head>
+  <body class="is-divload">
+    <div class="container">
+      <h2>Installing Ruby on Rails ... on Windows 10</h2>
+      <div>
+        <img src="assets/images/Square-Peg-Round-Hole.jpg" alt="" />
+      </div>
+      <p>
+        Maybe you're moving from a Mac to a PC and are used to Rails, or maybe
+        you got stuck in the Rails installation guide and went down 100
+        different stack-overflow rabbit holes (like me) and got nowhere. Well
+        it's not impossible, we can do this!
+      </p>
+      <p>
+        The first part of this guide is almost exactly the
+        <a href="https://gorails.com/setup/windows/10" target="_blank"
+          >Gorails Signup guide</a
+        >. If you've already gone through that, and you are stuck on the
+        Postgresql setup - you can
+        <a href="#postgres">skip to that section.</a> This tutorial also heavily
+        leans on the blog
+        <a
+          href="https://karansingh1559.medium.com/how-to-set-up-postgresql-on-ubuntu-for-wsl-fcbb777d165b"
+          target="_blank"
+          >How to set up postgreSQL on Ubuntu for WSL</a
+        >
+        by Karan Singh. This was the lifesaver that kept me from throwing my
+        laptop out the window and paying Tim Cook for an overpriced machine.
+        This blog also uses a solution on
+        <a
+          href="https://stackoverflow.com/questions/32439167/psql-could-not-connect-to-server-connection-refused-error-when-connecting-to"
+          target="_blank"
+          >this Stackoverflow</a
+        >
+        question. With these three sources combined, I was able to successfully
+        install Rails on Windows and you can too!
+      </p>
+      <p>
+        There's a few things you need right off the bat. Windows Store (ships
+        with Windows), and an up-to-date Windows version (Build 19041 and
+        higher, you can check your version by using WIN+R and entering winver)
+      </p>
+      <p>
+        For convenience, let's grab
+        <a
+          href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701"
+          target="_blank"
+          >Windows Terminal</a
+        >. This will allow you to have multiple tabs open at the same time, and
+        works with Ubuntu so you can quickly move back and forth from command
+        prompt / powershell and Ubuntu.
+      </p>
+      <p>
+        Speaking of Ubuntu, let's go ahead and
+        <a href="LASDjlkjlk" target="_blank">install that next</a>. This will
+        have all the usual commands and shortcuts that you're used to. Whenever
+        you want to make a new Rails app or start your server, you'll use
+        Ubuntu. When you install it, you'll make a username and password - they
+        can be unique if you want them to, but make the password something
+        you'll remember. You'll use that whenever you use the `sudo` command.
+      </p>
 
-<body class="is-divload">
-  <div class="container">
-    <h2>Installing Ruby on Rails ... on Windows 10</h2>
-    <div>
-      <img src="assets/images/Square-Peg-Round-Hole.jpg" alt="" />
-    </div>
-    <p>
-      Maybe you're moving from a Mac to a PC and are used to Rails, or maybe
-      you got stuck in the Rails installation guide and went down 100
-      different stack-overflow rabbit holes (like me) and got nowhere. Well
-      it's not impossible, we can do this!
-    </p>
-    <p>
-      The first part of this guide is almost exactly the <a href="https://gorails.com/setup/windows/10"
-        target="_blank">Gorails Signup guide</a>. If you've already gone through that, and you are stuck on the
-      Postgresql setup - you can <a href="#postgres">skip to that section.</a> This tutorial also heavily leans on the
-      blog <a href="https://karansingh1559.medium.com/how-to-set-up-postgresql-on-ubuntu-for-wsl-fcbb777d165b"
-        target="_blank">How to set up postgreSQL on Ubuntu for WSL</a> by Karan Singh. This was the lifesaver that kept
-      me from throwing my laptop out the window and paying Tim Cook for an overpriced machine. This blog also uses a
-      solution on <a
-        href="https://stackoverflow.com/questions/32439167/psql-could-not-connect-to-server-connection-refused-error-when-connecting-to"
-        target="_blank">this Stackoverflow</a> question. With these three sources combined, I was able to successfully
-      install Rails on Windows and you can too!
-    </p>
-    <p>
-      There's a few things you need right off the bat. Windows Store (ships
-      with Windows), and an up-to-date Windows version (Build 19041 and
-      higher, you can check your version by using WIN+R and entering winver)
-    </p>
-    <p>
-      For convenience, let's grab
-      <a href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701" target="_blank">Windows Terminal</a>.
-      This will allow you to have multiple tabs open at the same time, and
-      works with Ubuntu so you can quickly move back and forth from command
-      prompt / powershell and Ubuntu.
-    </p>
-    <p>
-      Speaking of Ubuntu, let's go ahead and install that next. This will have
-      all the usual commands and shortcuts that you're used to. Whenever you
-      want to make a new Rails app or start your server, you'll use Ubuntu.
-      When you install it, you'll make a username and password - they can be
-      unique if you want them to, but make the password something you'll
-      remember. You'll use that whenever you use the
-      `sudo` command.
-    </p>
+      <p>
+        <strong>
+          FROM HERE ON IN, USE UBUNTU ONLY FOR THIS INSTALLATION.
+        </strong>
+        Think of this like you're using a simulation of a mac inside Ubuntu.
+        You'll need to configure Git in here as if you didn't in your
+        Powershell.
+      </p>
 
-    <p>
-      <strong>
-        FROM HERE ON IN, USE UBUNTU ONLY FOR THIS INSTALLATION.
-      </strong> Think of this like you're using a simulation of a mac inside Ubuntu. You'll need to configure Git in
-      here as if you didn't in your Powershell.
-    </p>
+      <p>
+        When you're on Ubuntu, the root folder is different when you're on a PC
+        - there is no 'root' folder for PC. So when you want to navigate to
+        other folders in your computer, you'll have to go to /mnt/c -> which is
+        really the root of your C drive.
+      </p>
 
-    <p>
-      So the next step is to start on the Rails installation. You can follow
-      along there or just stick to this page.
-    </p>
-    <p>This will install some dependencies that you'll need for Ruby</p>
+      <p>
+        So the next step is to start on the Rails installation. You can follow
+        along there or just stick to this page.
+      </p>
+      <p>This will install some dependencies that you'll need for Ruby</p>
 
-    <div class="codebox rounded">
-      <code>
+      <div class="codebox rounded">
+        <code>
           sudo apt-get update <br />
           sudo apt-get install git-core curl zlib1g-dev build-essential
           libssl-dev li/peadline-dev libyaml-dev libsqlite3-dev sqlite3
           libxml2-dev libxslt1-dev libcurl4-openssl-dev
           software-properties-common libffi-dev
         </code>
-    </div>
+      </div>
 
-    <p>Now we'll install Ruby with Rbenv with the following commands</p>
+      <p>Now we'll install Ruby with Rbenv with the following commands</p>
 
-    <div class="codebox rounded">
-      <code>
+      <div class="codebox rounded">
+        <code>
           cd git clone https://github.com/rbenv/rbenv.git ~/.rbenv <br />
           echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc <br />
           echo 'eval "$(rbenv init -)"' >> ~/.bashrc <br />
@@ -99,66 +143,64 @@
           echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >>
           ~/.bashrc exec $SHELL
         </code>
-    </div>
+      </div>
 
-    <p>
-      Then to get the specific Ruby version we want, we use the following
-      commands utilizing Rbenv to get 3.03
-    </p>
+      <p>
+        Then to get the specific Ruby version we want, we use the following
+        commands utilizing Rbenv to get 3.03
+      </p>
 
-    <div class="codebox rounded">
-      <code>
+      <div class="codebox rounded">
+        <code>
           rbenv install 3.0.3 <br />
           rbenv global 3.0.3
         </code>
-    </div>
+      </div>
 
-    <p>
-      Confirm you've got Ruby installed..
-    </p>
+      <p>Confirm you've got Ruby installed..</p>
 
-    <div class="codebox rounded">
-      <code>
-          ruby -v
-        </code>
-    </div>
+      <div class="codebox rounded">
+        <code> ruby -v </code>
+      </div>
 
-    <p>
-      Then install the Bundler gem
-    </p>
+      <p>Then install the Bundler gem</p>
 
-    <div class="codebox rounded">
-      <code>
-          gem install bundler <br>
+      <div class="codebox rounded">
+        <code>
+          gem install bundler <br />
           rbenv rehash
         </code>
-    </div>
+      </div>
 
-    <p>Next we'll install Git</p>
+      <p>Next we'll install Git (change the red text to your login info)</p>
 
-    <div class="codebox rounded">
-      <code>
-        git config --global color.ui true <br>
-        git config --global user.name <span style="color:red">"YOUR NAME"</span><br>
-        git config --global user.email <span style="color:red">"YOUR@EMAIL.com" </span><br>
-        ssh-keygen -t rsa -b 4096 -C <span style="color:red">"YOUR@EMAIL.com"</span>
+      <div class="codebox rounded">
+        <code>
+          git config --global color.ui true <br />
+          git config --global user.name
+          <span style="color: red">"YOUR NAME"</span><br />
+          git config --global user.email
+          <span style="color: red">"YOUR@EMAIL.com" </span><br />
+          ssh-keygen -t rsa -b 4096 -C
+          <span style="color: red">"YOUR@EMAIL.com"</span>
         </code>
+      </div>
 
-    </div>
+      <p>
+        In the Gorails tutorial, it has us set up an SSH key for Github - but
+        that's been depreciated from what I understand. Github now uses Personal
+        Access Tokens - you can find this setup in your Github settings >
+        Developer Settings > Personal access tokens. Following the Github setup
+        shouldn't spark any issues.
+      </p>
 
-    <p>
-      In the Gorails tutorial, it has us set up an SSH key for Github - but that's been depreciated from what I
-      understand. Github now uses Personal Access Tokens - you can find this setup in your Github settings > Developer
-      Settings > Personal access tokens.
-    </p>
+      <p>
+        Next we'll get Node and Yarn. These are more dependencies for Rails, and
+        hey you might use them in the future.
+      </p>
 
-    <p>
-      Next we'll get Node and Yarn. These are more dependencies for Rails, and
-      hey you might use them in the future.
-    </p>
-
-    <div class="codebox rounded">
-      <code>
+      <div class="codebox rounded">
+        <code>
           curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - <br />
           curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
           <br />
@@ -169,81 +211,122 @@
           sudo apt update <br />
           sudo apt-get install -y nodejs yarn
         </code>
+      </div>
+
+      <p>Finally we install Rails!</p>
+
+      <div class="codebox rounded">
+        <code>
+          gem install rails -v 7.0.0.rc1 <br />
+          rbenv reshash
+        </code>
+      </div>
+      <p>
+        Now the Gorails tutorial suggests that you make all of your projects in
+        the /mnt/c/*** files. Again when you're on Ubuntu, the root folder is
+        different when you're on a PC - there is no 'root' folder for PC. So
+        when you want to navigate to other folders in your computer, you'll have
+        to go to /mnt/c -> which is really the root of your C drive.
+        <br />
+        Personally, I've found that rails commands take FOREVER when you're
+        going through /mnt/c/etc. I've moved all my projects to the 'root'
+        folder in Ubuntu and haven't had any problems.
+      </p>
+
+      <img
+        src="https://miro.medium.com/max/1220/0*jbEo9j6l_9Q9y3tB.jpg"
+        alt=""
+      />
+
+      <div id="postgres">
+        <p>
+          Now we'll install Postgresql. Here's where the Gorails tutorial stops
+          being helpful, as it asks us to install it through the Microsoft
+          Store. This just led me to huge headaches & I ended up having to
+          uninstall EVERYTHING and start again. Thankfully I found an amazing
+          blog that I'll synthesize here.
+        </p>
+        <div class="codebox rounded">
+          <code> sudo apt-get install postgresql </code>
+        </div>
+
+        <p>
+          Next we'll need to set up a password for postgres, you can make it the
+          same as any of your other passwords if that makes it easier. Basically
+          you can set up different users that have different database
+          permissions.
+        </p>
+        <div class="codebox rounded">
+          <code> sudo passwd postgres </code>
+        </div>
+
+        <p>
+          Now we'll need to edit the postgres.conf file. This is hidden deep in
+          your computer, and you can either edit it like the guide suggests with
+          the following command (the version might be different to what you
+          installed):
+        </p>
+        <div class="codebox rounded">
+          <code>
+            sudo vi /etc/postgresql/<span style="color: red">10</span
+            >/main/postgresql.conf
+          </code>
+        </div>
+
+        <p>
+          Personally instead of learning how to edit it that way, I simply used
+          the
+          <a href="https://www.voidtools.com/" target="_blank">Everything</a>
+          program to search for that file, and edit in in VSCode. I found it in:
+        </p>
+        <div class="codebox rounded">
+          <code>
+            C:\Users\Administrator\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\etc\postgresql\12\main\postgresql.conf
+          </code>
+        </div>
+        <p>
+          Once you're inside - you'll want to edit one part that's commented
+          out. Uncomment and edit it so that:
+        </p>
+        <div class="codebox rounded">
+          <code> data_sync_retry = true. </code>
+        </div>
+
+        <p>
+          Up next is the most important command you'll need!! This starts the
+          PostgreSQL service on your machine, so Rails can finally create
+          databases.
+        </p>
+        <div class="codebox rounded">
+          <code> sudo /etc/init.d/postgresql start </code>
+        </div>
+
+        <p>
+          You'll want to save that command - whenever you restart your PC, it
+          won't start that process immediately. So you can run it whenever you
+          boot up and want to start some Rails projects, or
+          <a href="https://github.com/troytse/wsl-autostart" target="_blank">
+            make a simple script for yourself that runs it on bootup.
+          </a>
+        </p>
+      </div>
+
+      <div id="bugs">
+        <p>
+          If you're having issues with other Rails projects that you've worked
+          on and are now cloning on your PC, check out
+          <a
+            href="https://stackoverflow.com/questions/32439167/psql-could-not-connect-to-server-connection-refused-error-when-connecting-to"
+            >this Stackoverflow question</a
+          >. You'll have to go back into that postgresql.conf file again and
+          change the port that you're using, or change the listen addresses.
+        </p>
+      </div>
+      <p>
+        And there you go! Hopefully you didn't have any issues following this,
+        but if you did- please email me at daveryan145@gmail.com and I can
+        revise this guide for future friends!
+      </p>
     </div>
-
-    <p>
-      Finally we install Rails!
-    <div class="codebox rounded">
-      <code>
-            gem install rails -v 7.0.0.rc1 <br>
-            rbenv reshash
-          </code>
-    </div>
-    </p>
-    <div id="postgres">
-      <p>
-        Now we'll install Postgresql. Here's where the Gorails tutorial stops being helpful, as it asks us to install it
-        through the Microsoft Store. This just led me to huge headaches & I ended up having to uninstall EVERYTHING and
-        start again. Thankfully I found an amazing blog that I'll synthesize here.
-      </p>
-      <div class="codebox rounded">
-        <code>
-            sudo apt-get install postgresql
-          </code>
-      </div>
-
-      <p>
-        Next we'll need to set up a password for postgres, you can make it the same as any of your other passwords if
-        that makes it easier. Basically you can set up different users that have different database permissions.
-      </p>
-      <div class="codebox rounded">
-        <code>
-            sudo passwd postgres
-          </code>
-      </div>
-
-      <p>
-        Now we'll need to edit the postgres.conf file. This is hidden deep in your computer, and you can either edit it
-        like the guide suggests with the following command (the version might be different to what you installed):
-      </p>
-      <div class="codebox rounded">
-        <code>
-            sudo vi /etc/postgresql/<span style="color:red">10</span>/main/postgresql.conf
-          </code>
-      </div>
-
-      <p>
-        Personally instead of learning how to edit it that way, I simply used the <a href="https://www.voidtools.com/"
-          target="_blank">Everything</a> program to search for that file, and edit in in VSCode. I found it in:</p>
-      <div class="codebox rounded">
-        <code>
-              C:\Users\Administrator\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\etc\postgresql\12\main\postgresql.conf
-            </code>
-      </div>
-
-
-      <p>
-        Up next is the most important command you'll need. This starts the PostgreSQL service on your machine, so Rails can finally create databases.  
-      </p>
-      <div class="codebox rounded">
-        <code>
-          sudo /etc/init.d/postgresql start 
-
-            </code>
-      </div>
-
-      <p>
-        You'll want to save that command - whenever you restart your PC, it won't start that process immediately. So you can run it whenever you boot up and want to start some Rails projects, or 
-        <a href="https://github.com/troytse/wsl-autostart" target="_blank">
-        make a simple script for yourself that runs it on bootup. 
-        </a>
-      </p>
-
-
-
-    </div>
-  </div>
-
-</body>
-
+  </body>
 </html>
