@@ -52,7 +52,7 @@
       <p>
         The first part of this guide is almost exactly the
         <a href="https://gorails.com/setup/windows/10" target="_blank"
-          >Gorails Setujp guide</a
+          >Gorails Setup guide</a
         >. If you've already gone through that, and you are stuck on the
         Postgresql setup - you can
         <a href="#postgres">skip to that section.</a> This tutorial also heavily
@@ -60,7 +60,7 @@
         <a
           href="https://karansingh1559.medium.com/how-to-set-up-postgresql-on-ubuntu-for-wsl-fcbb777d165b"
           target="_blank"
-          >How to set up postgreSQL on Ubuntu for WSL</a
+          >How to set up PostgreSQL on Ubuntu for WSL</a
         >
         by Karan Singh. This was the lifesaver that kept me from throwing my
         laptop out the window and paying Tim Cook for an overpriced machine.
@@ -90,12 +90,16 @@
       </p>
       <p>
         Speaking of Ubuntu, let's go ahead and
-        <a href="LASDjlkjlk" target="_blank">install that next</a>. This will
-        have all the usual commands and shortcuts that you're used to. Whenever
-        you want to make a new Rails app or start your server, you'll use
-        Ubuntu. When you install it, you'll make a username and password - they
-        can be unique if you want them to, but make the password something
-        you'll remember. You'll use that whenever you use the `sudo` command.
+        <a
+          href="https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6"
+          target="_blank"
+          >install that next</a
+        >. This will have all the usual commands and shortcuts that you're used
+        to. Whenever you want to make a new Rails app or start your server,
+        you'll use Ubuntu. When you install it, you'll make a username and
+        password - they can be unique if you want them to, but make the password
+        something you'll remember. You'll use that whenever you use the `sudo`
+        command.
       </p>
 
       <p>
@@ -134,15 +138,17 @@
 
       <div class="codebox rounded">
         <code>
-          cd git clone https://github.com/rbenv/rbenv.git ~/.rbenv <br />
+          cd<br />
+          git clone https://github.com/rbenv/rbenv.git ~/.rbenv <br />
           echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc <br />
           echo 'eval "$(rbenv init -)"' >> ~/.bashrc <br />
-          exec $SHELL git clone
+          exec $SHELL
           <br />
           <br />
-          https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+          git clone https://github.com/rbenv/ruby-build<br />
           echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >>
-          ~/.bashrc exec $SHELL
+          ~/.bashrc<br />
+          exec $SHELL
         </code>
       </div>
 
