@@ -1,8 +1,10 @@
-body {
-    background-image: url("../images/me.jpeg");
+.me {
+    background-image: url(../images/me.jpeg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: contain;
-
+}
+.container {
+    height: 100vh;
 }
