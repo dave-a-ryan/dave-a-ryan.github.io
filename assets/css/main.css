@@ -2,6 +2,21 @@ body {
   font-family: sans-serif;
 }
 
+a:link {
+  color: #1e00ff;
+  text-decoration: none;
+}
+a:visited {
+  color: #1e00ff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:active {
+  text-decoration: underline;
+}
+
 .me {
   background-image: url(../images/me.jpeg);
   background-repeat: no-repeat;
@@ -14,9 +29,11 @@ body {
     transparent 100%
   );
 }
+
 .container {
   height: 100vh;
 }
+
 .fading-list {
   max-height: 10rem;
   overflow: auto;
@@ -47,9 +64,12 @@ body {
 .fading-list::-webkit-scrollbar-thumb {
   background-color: #d6dee1;
   border-radius: 20px;
-  border: 1px white;
 }
 
 .fading-list::-webkit-scrollbar-thumb:hover {
   background-color: #969595;
+}
+
+.no-hover:hover {
+  cursor: default;
 }
