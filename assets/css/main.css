@@ -3,11 +3,11 @@ body {
 }
 
 a:link {
-  color: #1e00ff;
+  color: rgb(51, 115, 125);
   text-decoration: none;
 }
 a:visited {
-  color: #1e00ff;
+  color: rgb(51, 115, 125);
   text-decoration: none;
 }
 a:hover {
@@ -23,11 +23,12 @@ a:active {
   background-attachment: fixed;
   background-position: center;
   background-size: contain;
-  mask-image: linear-gradient(
-    to bottom,
-    black calc(100% - 48px),
-    transparent 100%
-  );
+}
+
+.layer {
+  height: 10rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
 }
 
 .container {
@@ -39,6 +40,7 @@ a:active {
   overflow: auto;
   list-style-type: none;
   padding-left: 6px;
+  max-width: 8rem;
 
   --mask: linear-gradient(
       to bottom,
