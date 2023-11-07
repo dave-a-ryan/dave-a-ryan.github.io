@@ -39,6 +39,10 @@ a:active {
   list-style-type: none;
 }
 
+.right-container {
+  max-width: 8rem;
+}
+
 .right-list {
   height: 10rem;
   overflow: auto;
