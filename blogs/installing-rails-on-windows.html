@@ -38,16 +38,16 @@
 
   <body class="is-divload">
     <div class="container">
-      <h2>Installing Ruby on Rails ... on Windows 10</h2>
+      <h2>Installing Ruby on Rails... on Windows 10</h2>
       <hr />
       <div>
         <img src="../assets/images/Square-Peg-Round-Hole.jpg" alt="" />
       </div>
       <p>
-        Maybe you're moving from a Mac to a PC and are used to Rails, or maybe
-        you got stuck in the Rails installation guide and went down 100
-        different stack-overflow rabbit holes (like me) and got nowhere. Well
-        it's not impossible, we can do this!
+        Maybe you're moving from a Mac to a PC and you're used to Rails, or
+        maybe you got stuck in the Rails installation guide and went down 100
+        different Stack Overflow rabbit holes and got nowhere. Well, i've been
+        there and I can tell you that it's not impossible, we can do this!
       </p>
       <p>
         The first part of this guide is almost exactly the
@@ -68,15 +68,16 @@
         <a
           href="https://stackoverflow.com/questions/32439167/psql-could-not-connect-to-server-connection-refused-error-when-connecting-to"
           target="_blank"
-          >this Stackoverflow</a
+          >this Stack Overflow</a
         >
         question. With these three sources combined, I was able to successfully
         install Rails on Windows and you can too!
       </p>
       <p>
-        There's a few things you need right off the bat. Windows Store (ships
+        There are a few things you need right off the bat. Windows Store (ships
         with Windows), and an up-to-date Windows version (Build 19041 and
-        higher, you can check your version by using WIN+R and entering winver)
+        higher, you can check your version by using WIN+R and entering
+        <code class="text-dark">winver</code>)
       </p>
       <p>
         For convenience, let's grab
@@ -84,9 +85,9 @@
           href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701"
           target="_blank"
           >Windows Terminal</a
-        >. This will allow you to have multiple tabs open at the same time, and
-        works with Ubuntu so you can quickly move back and forth from command
-        prompt / powershell and Ubuntu.
+        >. This will allow you to have multiple tabs open at the same time and
+        works with Ubuntu so you can quickly move back and forth between
+        PowerShell/CMD and Ubuntu.
       </p>
       <p>
         Speaking of Ubuntu, let's go ahead and
@@ -106,16 +107,15 @@
         <strong>
           FROM HERE ON IN, USE UBUNTU ONLY FOR THIS INSTALLATION.
         </strong>
-        Think of this like you're using a simulation of a mac inside Ubuntu.
-        You'll need to configure Git in here as if you didn't in your
-        Powershell.
+        Think of this like you're using a simulation of a Mac inside Ubuntu.
+        You'll need to configure Git here as if you didn't in your Powershell.
       </p>
 
       <p>
         When you're on Ubuntu, the root folder is different when you're on a PC
-        - there is no 'root' folder for PC. So when you want to navigate to
+        - there is no 'root' folder for a PC. So when you want to navigate to
         other folders in your computer, you'll have to go to /mnt/c -> which is
-        really the root of your C drive.
+        the root of your C drive.
       </p>
 
       <p>
@@ -194,16 +194,16 @@
       </div>
 
       <p>
-        In the Gorails tutorial, it has us set up an SSH key for Github - but
-        that's been depreciated from what I understand. Github now uses Personal
-        Access Tokens - you can find this setup in your Github settings >
-        Developer Settings > Personal access tokens. Following the Github setup
-        shouldn't spark any issues.
+        The Gorails tutorial has us set up an SSH key for GitHub - but that's
+        been depreciated from what I understand. GitHub now uses Personal Access
+        Tokens - you can find this setup in your GitHub settings > Developer
+        Settings > Personal access tokens. Following the GitHub setup shouldn't
+        spark any issues.
       </p>
 
       <p>
-        Next we'll get Node and Yarn. These are more dependencies for Rails, and
-        hey you might use them in the future.
+        Next, we'll get Node and Yarn. These are more dependencies for Rails,
+        and hey you might use them in the future.
       </p>
 
       <div class="codebox rounded">
@@ -231,13 +231,13 @@
       <p>
         Now the Gorails tutorial suggests that you make all of your projects in
         the /mnt/c/*** files. Again when you're on Ubuntu, the root folder is
-        different when you're on a PC - there is no 'root' folder for PC. So
+        different when you're on a PC - there is no 'root' folder for a PC. So
         when you want to navigate to other folders in your computer, you'll have
-        to go to /mnt/c -> which is really the root of your C drive.
+        to go to /mnt/c -> which is the root of your C drive.
         <br />
-        Personally, I've found that rails commands take FOREVER when you're
-        going through /mnt/c/etc. I've moved all my projects to the 'root'
-        folder in Ubuntu and haven't had any problems.
+        I've found that rails commands take FOREVER when you're going through
+        /mnt/c/etc. I've moved all my projects to the 'root' folder in Ubuntu
+        and haven't had any problems.
       </p>
 
       <div id="postgres">
@@ -255,9 +255,9 @@
         </div>
 
         <p>
-          Next we'll need to set up a password for postgres, you can make it the
-          same as any of your other passwords if that makes it easier. Basically
-          you can set up different users that have different database
+          Next, we'll need to set up a password for Postgres, you can make it
+          the same as any of your other passwords if that makes it easier.
+          Basically, you can set up different users that have different database
           permissions.
         </p>
         <div class="codebox rounded">
@@ -266,9 +266,9 @@
 
         <p>
           Now we'll need to edit the postgres.conf file. This is hidden deep in
-          your computer, and you can either edit it like the guide suggests with
-          the following command (the version might be different to what you
-          installed):
+          your computer, and you <i>can</i> edit it like the GoRails guide
+          suggests with the following command (the version might be different to
+          what you installed):
         </p>
         <div class="codebox rounded">
           <code>
@@ -278,10 +278,9 @@
         </div>
 
         <p>
-          Personally instead of learning how to edit it that way, I simply used
-          the
+          Instead of learning how to edit it that way, I simply used the
           <a href="https://www.voidtools.com/" target="_blank">Everything</a>
-          program to search for that file, and edit in in VSCode. I found it in:
+          program to search for that file and edit it in VSCode. I found it in:
         </p>
         <div class="codebox rounded">
           <code>
@@ -308,7 +307,7 @@
         <p>
           You'll want to save that command - whenever you restart your PC, it
           won't start that process immediately. So you can run it whenever you
-          boot up and want to start some Rails projects, or
+          boot up and want to start some Rails projects or
           <a href="https://github.com/troytse/wsl-autostart" target="_blank">
             make a simple script for yourself that runs it on bootup.
           </a>
@@ -323,11 +322,11 @@
             href="https://stackoverflow.com/questions/32439167/psql-could-not-connect-to-server-connection-refused-error-when-connecting-to"
             >this Stackoverflow post</a
           >. You'll have to go back into that postgresql.conf file again and
-          change the port that you're using, or change the listen addresses.
+          change the port that you're using or change the listen addresses.
         </p>
       </div>
       <p>
-        And there you go! Hopefully you didn't have any issues following this,
+        And there you go! Hopefully, you didn't have any issues following this,
         but if you did- please email me at daveryan145@gmail.com and I can
         revise this guide for future friends!
       </p>
